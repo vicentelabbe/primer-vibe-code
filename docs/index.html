@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EL GOLEADOR QUE NO FUE CAMPEÓN — Fútbol / Qatar 2022</title>
+    <meta
+      name="description"
+      content="Kylian Mbappé marcó ocho goles en el Mundial de Qatar 2022, uno más que Lionel Messi, pero Argentina se consagró campeona."
+    />
+    <meta property="og:title" content="EL GOLEADOR QUE NO FUE CAMPEÓN" />
+    <meta
+      property="og:description"
+      content="Mbappé marcó más goles, pero Messi levantó la Copa del Mundo. Datos oficiales de la Copa Mundial de la FIFA Qatar 2022."
+    />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary" />
+    <style>
+      :root {
+        --bg: #f5f5f0;
+        --ink: #111111;
+        --lime: #c6ff36;
+        --gray: #777777;
+        --rule: rgba(17, 17, 17, 0.22);
+        --grid: rgba(17, 17, 17, 0.14);
+
+        --font-display: "Impact", "Arial Narrow", "Helvetica Condensed",
+          "Liberation Sans Narrow", "DejaVu Sans Condensed", sans-serif;
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        --font-serif: "Georgia", "Times New Roman", "Liberation Serif", serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg);
+        color: var(--ink);
+        font-family: var(--font-sans);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Lienzo editorial principal */
+      .editorial-page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 64px;
+      }
+
+      @media (min-width: 768px) {
+        .editorial-page {
+          padding: 56px 40px 80px;
+        }
+      }
+
+      /* Separadores finos */
+      .rule {
+        border: 0;
+        height: 1px;
+        background-color: var(--ink);
+        margin: 36px 0;
+        opacity: 0.24;
+      }
+
+      .rule--strong {
+        height: 2px;
+        opacity: 1;
+      }
+
+      /* ENCABEZADO */
+      .masthead {
+        padding-bottom: 4px;
+      }
+
+      .kicker {
+        margin: 0 0 18px;
+        font-family: var(--font-sans);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .headline-frame {
+        display: block;
+        border: 2px solid var(--ink);
+        outline: 6px solid var(--lime);
+        outline-offset: 2px;
+        padding: 18px 20px 16px;
+        margin: 8px 8px 24px;
+        background-color: var(--bg);
+      }
+
+      @media (min-width: 768px) {
+        .headline-frame {
+          padding: 24px 28px 20px;
+          outline-width: 8px;
+          margin: 10px 10px 28px;
+        }
+      }
+
+      .headline {
+        margin: 0;
+        font-family: var(--font-display);
+        font-stretch: condensed;
+        font-size: clamp(2.4rem, 7.2vw, 4.75rem);
+        font-weight: 900;
+        line-height: 0.94;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        text-wrap: balance;
+        color: var(--ink);
+      }
+
+      .standfirst {
+        margin: 0;
+        max-width: 44rem;
+        font-family: var(--font-serif);
+        font-size: clamp(1.125rem, 2.2vw, 1.4rem);
+        line-height: 1.4;
+        font-weight: 400;
+        color: var(--ink);
+      }
+
+      /* Encabezados de sección */
+      .section-label {
+        margin: 0 0 18px;
+        font-family: var(--font-sans);
+        font-size: 0.8125rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .section-title {
+        margin: -8px 0 24px;
+        font-family: var(--font-display);
+        font-stretch: condensed;
+        font-size: clamp(1.85rem, 4.5vw, 2.85rem);
+        font-weight: 900;
+        line-height: 0.98;
+        letter-spacing: 0.015em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      /* GRÁFICO 1 — BARRAS HORIZONTALES */
+      .chart-1 {
+        margin: 0;
+      }
+
+      .bar-chart {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .bar-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        align-items: center;
+        padding: 4px 0;
+        transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @media (min-width: 640px) {
+        .bar-row {
+          grid-template-columns: 195px 1fr;
+          gap: 18px;
+        }
+      }
+
+      .bar-chart.has-focus .bar-row:not(.is-active) {
+        opacity: 0.55;
+      }
+
+      .player-meta {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      @media (min-width: 640px) {
+        .player-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2px;
+        }
+      }
+
+      .player-name {
+        font-family: var(--font-display);
+        font-stretch: condensed;
+        font-size: 1.35rem;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .player-team {
+        font-family: var(--font-sans);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gray);
+      }
+
+      .bar-track-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-height: 40px;
+      }
+
+      /* Área proporcional exacta 0–8 goles */
+      .bar-track {
+        position: relative;
+        width: calc(100% - 76px);
+        height: 36px;
+        border-left: 2px solid var(--ink);
+        background-image: repeating-linear-gradient(
+          to right,
+          transparent 0,
+          transparent calc(25% - 1px),
+          var(--grid) calc(25% - 1px),
+          var(--grid) 25%
+        );
+      }
+
+      .bar-fill-wrap {
+        position: relative;
+        height: 100%;
+        width: var(--pct);
+        display: flex;
+        align-items: center;
+      }
+
+      .bar-fill {
+        width: 100%;
+        height: 100%;
+        border: 1.5px solid var(--ink);
+        border-left: 0;
+        transform-origin: left center;
+        transform: scaleX(1);
+      }
+
+      .bar-fill--lime {
+        background-color: var(--lime);
+        background-image: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 7px,
+          rgba(17, 17, 17, 0.1) 7px,
+          rgba(17, 17, 17, 0.1) 9px
+        );
+      }
+
+      .bar-fill--gray {
+        background-color: var(--gray);
+      }
+
+      .bar-value {
+        position: absolute;
+        left: calc(100% + 10px);
+        font-family: var(--font-display);
+        font-stretch: condensed;
+        font-variant-numeric: tabular-nums;
+        font-size: 1.6rem;
+        font-weight: 900;
+        line-height: 1;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .bar-value-unit {
+        font-family: var(--font-sans);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--gray);
+        margin-left: 4px;
+      }
+
+      /* Eje inferior de goles (0 a 8) */
+      .axis-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 6px;
+      }
+
+      @media (min-width: 640px) {
+        .axis-row {
+          grid-template-columns: 195px 1fr;
+          gap: 18px;
+        }
+      }
+
+      .axis-spacer {
+        display: none;
+      }
+
+      @media (min-width: 640px) {
+        .axis-spacer {
+          display: block;
+        }
+      }
+
+      .axis-scale {
+        position: relative;
+        width: calc(100% - 76px);
+        border-top: 2px solid var(--ink);
+        height: 28px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .axis-tick {
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        padding-top: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .axis-tick::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1.5px;
+        height: 5px;
+        background-color: var(--ink);
+        transform: translateX(-50%);
+      }
+
+      .axis-tick--0 {
+        left: 0%;
+        transform: translateX(0);
+      }
+      .axis-tick--0::before {
+        left: 0;
+        transform: none;
+      }
+      .axis-tick--2 {
+        left: 25%;
+      }
+      .axis-tick--4 {
+        left: 50%;
+      }
+      .axis-tick--6 {
+        left: 75%;
+      }
+      .axis-tick--8 {
+        left: 100%;
+      }
+
+      .axis-unit {
+        margin: 4px 0 0;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gray);
+      }
+
+      @media (min-width: 640px) {
+        .axis-unit {
+          padding-left: 213px;
+        }
+      }
+
+      .source-note {
+        margin: 18px 0 0;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+        color: var(--gray);
+      }
+
+      /* PÁRRAFO EXPLICATIVO */
+      .editorial-copy {
+        margin: 0;
+        max-width: 44rem;
+        font-family: var(--font-serif);
+        font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+        line-height: 1.72;
+        color: var(--ink);
+      }
+
+      /* GRÁFICO 2 — DOS FINALISTAS, DOS CIFRAS */
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      @media (min-width: 640px) {
+        .comparison-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 28px;
+        }
+      }
+
+      .finalist-card {
+        border: 2px solid var(--ink);
+        padding: 24px 24px 22px;
+        background-color: var(--bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .finalist-card--leader {
+        box-shadow: 6px 6px 0 var(--lime);
+      }
+
+      .finalist-card--runner {
+        box-shadow: 6px 6px 0 var(--gray);
+      }
+
+      .finalist-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 12px;
+        margin-bottom: 18px;
+      }
+
+      .finalist-name {
+        margin: 0;
+        font-family: var(--font-display);
+        font-stretch: condensed;
+        font-size: 1.55rem;
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .finalist-team {
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gray);
+        white-space: nowrap;
+      }
+
+      .finalist-figure-row {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .finalist-number {
+        font-family: var(--font-display);
+        font-stretch: condensed;
+        font-variant-numeric: tabular-nums;
+        font-size: clamp(5rem, 11vw, 7.25rem);
+        font-weight: 900;
+        line-height: 0.85;
+        color: var(--ink);
+      }
+
+      .finalist-card--leader .finalist-number {
+        background-color: var(--lime);
+        padding: 6px 14px 2px;
+        border: 2px solid var(--ink);
+      }
+
+      .finalist-unit {
+        font-family: var(--font-sans);
+        font-size: 0.875rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      /* Misma escala visual 0–8 goles en Gráfico 2 */
+      .mini-scale-wrap {
+        margin-top: 6px;
+      }
+
+      .mini-scale-track {
+        position: relative;
+        width: 100%;
+        height: 22px;
+        border: 1.5px solid var(--ink);
+        background-color: var(--bg);
+        background-image: repeating-linear-gradient(
+          to right,
+          transparent 0,
+          transparent calc(25% - 1px),
+          var(--grid) calc(25% - 1px),
+          var(--grid) 25%
+        );
+      }
+
+      .mini-scale-fill {
+        height: 100%;
+        width: var(--pct);
+        transform-origin: left center;
+        transform: scaleX(1);
+      }
+
+      .mini-scale-fill--lime {
+        background-color: var(--lime);
+        border-right: 1.5px solid var(--ink);
+      }
+
+      .mini-scale-fill--gray {
+        background-color: var(--gray);
+        border-right: 1.5px solid var(--ink);
+      }
+
+      .mini-scale-ticks {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        color: var(--gray);
+      }
+
+      /* CIERRE Y FUENTES */
+      .closing-copy {
+        margin: 0 0 28px;
+        max-width: 44rem;
+        font-family: var(--font-serif);
+        font-size: clamp(1.125rem, 2vw, 1.35rem);
+        line-height: 1.62;
+        color: var(--ink);
+      }
+
+      .sources-box {
+        border-top: 2px solid var(--ink);
+        padding-top: 18px;
+      }
+
+      .sources-title {
+        margin: 0 0 8px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .sources-link {
+        display: inline-block;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        word-break: break-word;
+        padding: 4px 0;
+        transition: background-color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .sources-link:hover,
+      .sources-link:focus-visible {
+        background-color: var(--lime);
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
+      }
+
+      /* Animación de entrada de barras (sin ocultar jamás los valores) */
+      @keyframes growBarX {
+        from {
+          transform: scaleX(0);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+
+      .animate-bar {
+        animation: growBarX 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .animate-bar--delay-1 {
+        animation-delay: 80ms;
+      }
+      .animate-bar--delay-2 {
+        animation-delay: 160ms;
+      }
+      .animate-bar--delay-3 {
+        animation-delay: 240ms;
+      }
+
+      /* Cuando JS observa Gráfico 2 debajo del pliegue */
+      .js-ready .chart-2-pending .mini-scale-fill {
+        transform: scaleX(0);
+      }
+
+      .js-ready .chart-2-visible .mini-scale-fill {
+        animation: growBarX 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      @media (prefers-reduced-motion: reduce), print {
+        html {
+          scroll-behavior: auto;
+        }
+        .animate-bar,
+        .js-ready .chart-2-visible .mini-scale-fill {
+          animation: none !important;
+          transform: scaleX(1) !important;
+        }
+        .js-ready .chart-2-pending .mini-scale-fill {
+          transform: scaleX(1) !important;
+        }
+        .bar-row,
+        .finalist-card,
+        .sources-link {
+          transition: none !important;
+        }
+      }
+    </style>
+    <script>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js-ready");
+      }
+    </script>
+  </head>
+  <body>
+    <main class="editorial-page">
+      <!-- ENCABEZADO -->
+      <header class="masthead">
+        <p class="kicker">FÚTBOL / QATAR 2022</p>
+        <div class="headline-frame">
+          <h1 class="headline">EL GOLEADOR QUE NO FUE CAMPEÓN</h1>
+        </div>
+        <p class="standfirst">
+          Mbappé marcó más goles, pero Messi levantó la Copa del Mundo.
+        </p>
+      </header>
+
+      <hr class="rule rule--strong" />
+
+      <!-- GRÁFICO 1 — LOS GOLEADORES DEL MUNDIAL -->
+      <section class="chart-1" aria-labelledby="titulo-grafico-1">
+        <h2 id="titulo-grafico-1" class="section-label">
+          GRÁFICO 1 — LOS GOLEADORES DEL MUNDIAL
+        </h2>
+
+        <div
+          class="bar-chart"
+          id="bar-chart-1"
+          role="list"
+          aria-label="Clasificación de goleadores en Qatar 2022"
+        >
+          <div class="bar-row" role="listitem" tabindex="0">
+            <div class="player-meta">
+              <span class="player-name">Kylian Mbappé</span>
+              <span class="player-team">Francia</span>
+            </div>
+            <div class="bar-track-wrap">
+              <div class="bar-track">
+                <div class="bar-fill-wrap" style="--pct: 100%">
+                  <div class="bar-fill bar-fill--lime animate-bar"></div>
+                  <span class="bar-value"
+                    >8<span class="bar-value-unit">goles</span></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bar-row" role="listitem" tabindex="0">
+            <div class="player-meta">
+              <span class="player-name">Lionel Messi</span>
+              <span class="player-team">Argentina</span>
+            </div>
+            <div class="bar-track-wrap">
+              <div class="bar-track">
+                <div class="bar-fill-wrap" style="--pct: 87.5%">
+                  <div
+                    class="bar-fill bar-fill--gray animate-bar animate-bar--delay-1"
+                  ></div>
+                  <span class="bar-value"
+                    >7<span class="bar-value-unit">goles</span></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bar-row" role="listitem" tabindex="0">
+            <div class="player-meta">
+              <span class="player-name">Olivier Giroud</span>
+              <span class="player-team">Francia</span>
+            </div>
+            <div class="bar-track-wrap">
+              <div class="bar-track">
+                <div class="bar-fill-wrap" style="--pct: 50%">
+                  <div
+                    class="bar-fill bar-fill--gray animate-bar animate-bar--delay-2"
+                  ></div>
+                  <span class="bar-value"
+                    >4<span class="bar-value-unit">goles</span></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bar-row" role="listitem" tabindex="0">
+            <div class="player-meta">
+              <span class="player-name">Julián Álvarez</span>
+              <span class="player-team">Argentina</span>
+            </div>
+            <div class="bar-track-wrap">
+              <div class="bar-track">
+                <div class="bar-fill-wrap" style="--pct: 50%">
+                  <div
+                    class="bar-fill bar-fill--gray animate-bar animate-bar--delay-3"
+                  ></div>
+                  <span class="bar-value"
+                    >4<span class="bar-value-unit">goles</span></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="axis-row" aria-hidden="true">
+          <div class="axis-spacer"></div>
+          <div class="axis-scale">
+            <span class="axis-tick axis-tick--0">0</span>
+            <span class="axis-tick axis-tick--2">2</span>
+            <span class="axis-tick axis-tick--4">4</span>
+            <span class="axis-tick axis-tick--6">6</span>
+            <span class="axis-tick axis-tick--8">8</span>
+          </div>
+        </div>
+        <p class="axis-unit">Escala en goles anotados (0 a 8)</p>
+
+        <p class="source-note">
+          Fuente: FIFA, Copa Mundial de la FIFA Qatar 2022, clasificación de
+          goleadores.
+        </p>
+      </section>
+
+      <hr class="rule" />
+
+      <!-- PÁRRAFO EXPLICATIVO -->
+      <section aria-label="Contexto de los datos">
+        <p class="editorial-copy">
+          Kylian Mbappé terminó el Mundial de Qatar 2022 con ocho goles, uno más
+          que Lionel Messi. Sin embargo, Argentina se consagró campeona tras
+          vencer a Francia en la final. El contraste muestra que el máximo
+          reconocimiento goleador individual no necesariamente coincide con el
+          título colectivo.
+        </p>
+      </section>
+
+      <hr class="rule" />
+
+      <!-- GRÁFICO 2 — DOS FINALISTAS, DOS CIFRAS -->
+      <section
+        id="grafico-2"
+        class="chart-2-pending"
+        aria-labelledby="titulo-grafico-2"
+      >
+        <p class="section-label">GRÁFICO 2 — DOS FINALISTAS, DOS CIFRAS</p>
+        <h2 id="titulo-grafico-2" class="section-title">
+          UN GOL DE DIFERENCIA
+        </h2>
+
+        <div class="comparison-grid">
+          <article class="finalist-card finalist-card--leader">
+            <div>
+              <div class="finalist-header">
+                <h3 class="finalist-name">Kylian Mbappé</h3>
+                <span class="finalist-team">Francia</span>
+              </div>
+              <div class="finalist-figure-row">
+                <span class="finalist-number">8</span>
+                <span class="finalist-unit">goles</span>
+              </div>
+            </div>
+            <div class="mini-scale-wrap" aria-hidden="true">
+              <div class="mini-scale-track">
+                <div
+                  class="mini-scale-fill mini-scale-fill--lime"
+                  style="--pct: 100%"
+                ></div>
+              </div>
+              <div class="mini-scale-ticks">
+                <span>0</span>
+                <span>2</span>
+                <span>4</span>
+                <span>6</span>
+                <span>8 goles</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="finalist-card finalist-card--runner">
+            <div>
+              <div class="finalist-header">
+                <h3 class="finalist-name">Lionel Messi</h3>
+                <span class="finalist-team">Argentina</span>
+              </div>
+              <div class="finalist-figure-row">
+                <span class="finalist-number">7</span>
+                <span class="finalist-unit">goles</span>
+              </div>
+            </div>
+            <div class="mini-scale-wrap" aria-hidden="true">
+              <div class="mini-scale-track">
+                <div
+                  class="mini-scale-fill mini-scale-fill--gray"
+                  style="--pct: 87.5%"
+                ></div>
+              </div>
+              <div class="mini-scale-ticks">
+                <span>0</span>
+                <span>2</span>
+                <span>4</span>
+                <span>6</span>
+                <span>8 goles</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="source-note">Fuente: FIFA, Qatar 2022.</p>
+      </section>
+
+      <hr class="rule" />
+
+      <!-- CIERRE Y FUENTES -->
+      <footer>
+        <p class="closing-copy">
+          Mbappé se quedó con la Bota de Oro. Messi, con la Copa del Mundo. Dos
+          reconocimientos distintos que resumen una misma final.
+        </p>
+
+        <div class="sources-box">
+          <h2 class="sources-title">Fuentes</h2>
+          <a
+            class="sources-link"
+            href="https://www.fifa.com/tournaments/mens/worldcup/qatar2022"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.fifa.com/tournaments/mens/worldcup/qatar2022
+          </a>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        var prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        // Interacción sutil al pasar o enfocar barras del Gráfico 1
+        var chart1 = document.getElementById("bar-chart-1");
+        if (chart1) {
+          var rows = chart1.querySelectorAll(".bar-row");
+          rows.forEach(function (row) {
+            var activate = function () {
+              chart1.classList.add("has-focus");
+              rows.forEach(function (r) {
+                r.classList.toggle("is-active", r === row);
+              });
+            };
+            var deactivate = function () {
+              chart1.classList.remove("has-focus");
+              rows.forEach(function (r) {
+                r.classList.remove("is-active");
+              });
+            };
+            row.addEventListener("mouseenter", activate);
+            row.addEventListener("mouseleave", deactivate);
+            row.addEventListener("focus", activate);
+            row.addEventListener("blur", deactivate);
+          });
+        }
+
+        // Animación al entrar en vista para Gráfico 2 (respetando movimiento reducido)
+        var chart2 = document.getElementById("grafico-2");
+        if (chart2) {
+          var revealChart2 = function () {
+            chart2.classList.remove("chart-2-pending");
+            chart2.classList.add("chart-2-visible");
+          };
+
+          if (prefersReduced || !("IntersectionObserver" in window)) {
+            revealChart2();
+          } else {
+            var revealed = false;
+            var triggerReveal = function () {
+              if (!revealed) {
+                revealed = true;
+                revealChart2();
+              }
+            };
+            var observer = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    triggerReveal();
+                    observer.disconnect();
+                  }
+                });
+              },
+              { threshold: 0.05 }
+            );
+            observer.observe(chart2);
+            setTimeout(triggerReveal, 1400);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
